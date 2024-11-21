@@ -1,0 +1,30 @@
+name: Build React App
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build-react-app:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        working-directory: ./my-app
+        run: npm install
+
+      - name: Test React App
+        working-directory: ./my-app
+        run: npm run test
+    
+      - name: Build React App
+        working-directory: ./my-app
+        run: npm run build
