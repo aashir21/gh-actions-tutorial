@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  lint:
+  build-react-app:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -20,6 +20,10 @@ jobs:
       - name: Install dependencies
         working-directory: ./my-app
         run: npm install
+
+      - name: Test React App
+        working-directory: ./my-app
+        run: npm run test
     
       - name: Build React App
         working-directory: ./my-app
