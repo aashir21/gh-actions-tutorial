@@ -28,3 +28,9 @@ jobs:
       - name: Build React App
         working-directory: ./my-app
         run: npm run build
+      
+      - name: Turn script into executble
+        run: chmod +x detect-secrets.sh
+
+      - name: Run detect-secrets script
+        run: ./detect-secrets.sh
